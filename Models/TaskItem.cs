@@ -10,9 +10,9 @@ namespace TaskManagement.Models
 
         [Required]
         [MaxLength(100)]
-        public string Title { get; set; }
+        public required string Title { get; set; }
 
-        public string Description { get; set; }
+        public required string Description { get; set; }
 
         public DateTime DueDate { get; set; }
 
@@ -20,6 +20,6 @@ namespace TaskManagement.Models
 
         // Foreign key and navigation property
         public int UserId { get; set; }
-        public User User { get; set; }
+        public required User User { get; set; }
     }
 }

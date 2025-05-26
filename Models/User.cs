@@ -10,20 +10,20 @@ namespace TaskManagement.Models
 
         [Required]
         [MaxLength(50)]
-        public string UserName { get; set; }
+        public required string UserName { get; set; }
 
         [Required]
         [EmailAddress]
-        public string Email { get; set; }
+        public required string Email { get; set; }
 
         [Required]
-        public string PasswordHash { get; set; } // Store hashed password
+        public required string PasswordHash { get; set; } // Store hashed password
 
         [Required]
         public string Role { get; set; } = "User"; // "User" or "Admin"
 
         // Navigation Property: One user can have many tasks
-        public ICollection<TaskItem> Tasks { get; set; }
+        public required ICollection<TaskItem> Tasks { get; set; }
     }
 }
 

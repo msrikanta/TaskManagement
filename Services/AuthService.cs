@@ -27,14 +27,15 @@ public class AuthService : IAuthService
     {
         if (await _context.Users.AnyAsync(x => x.Email == dto.Email))
             return "User already exists";
-
         var user = new User
         {
             UserName = dto.UserName,
             Email = dto.Email,
             PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
-            Role = "User"
+            Role = "User",
+            Tasks = new List<TaskItem>()
         };
+
 
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
